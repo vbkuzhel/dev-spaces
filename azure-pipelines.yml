@@ -6,13 +6,13 @@
 trigger:
   - master
   
-  resources:
+resources:
   - repo: self
   
-  variables:
-    tag: '$(Build.BuildId)'
+variables:
+  tag: '$(Build.BuildId)'
   
-  stages:
+stages:
   - stage: Build
     displayName: Build image
     jobs:  
