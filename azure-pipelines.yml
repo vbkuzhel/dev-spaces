@@ -34,5 +34,5 @@ stages:
           inputs:
             workingFolder: 'samples\dotnetcore\getting-started\mywebapi'
             filename: 'c:\Windows\System32\cmd.exe'
-            arguments: '/c docker login --username kuzhel -p $dhpswd'          
+            arguments: '/c docker login --username kuzhel -p %DHPSWD%'          
           
