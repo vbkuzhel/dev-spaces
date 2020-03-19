@@ -30,7 +30,7 @@ stages:
           workingFolder: 'samples\dotnetcore\getting-started\mywebapi'
           filename: 'c:\Windows\System32\cmd.exe'
           arguments: '/c docker build -t azdz .'         
-      - task: CmdLine@1
+      - task: CmdLine@2
         inputs:
           workingFolder: 'samples\dotnetcore\getting-started\mywebapi'
           script: 'docker login --username kuzhel -p %DHPSWD%'
