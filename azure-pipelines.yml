@@ -22,6 +22,7 @@ stages:
     steps:
     - task: BatchScript@1
       inputs:
+        workingFolder: 'samples\dotnetcore\getting-started\mywebapi'
         filename: '"C:\Program Files\Docker\Docker\resources\bin\docker.exe"'
-        arguments: 'build -f samples\dotnetcore\getting-started\mywebapi\Dockerfile -t devspaces samples\dotnetcore\getting-started\mywebapi'      
+        arguments: 'build --t devspaces .'      
 
