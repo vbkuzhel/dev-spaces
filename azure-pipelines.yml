@@ -23,5 +23,5 @@ stages:
     - task: BatchScript@1
       inputs:
         workingFolder: 'samples\dotnetcore\getting-started\mywebapi'
-        filename: '"dir'
+        filename: 'dir'
         arguments: ''      
