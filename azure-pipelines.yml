@@ -20,6 +20,7 @@ stages:
     displayName: Build
     pool: self-hosted
     steps:
+    
     - task: BatchScript@1
       inputs:
         workingFolder: 'samples\dotnetcore\getting-started\mywebapi'
