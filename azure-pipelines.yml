@@ -4,7 +4,7 @@
 # https://docs.microsoft.com/azure/devops/pipelines/languages/docker
 
 trigger:
-  - azds_updates
+  - master
   
   resources:
   - repo: self
@@ -20,7 +20,6 @@ trigger:
       displayName: Build
       pool: self-hosted
       steps:
-      
       - task: BatchScript@1
         inputs:
           workingFolder: 'samples\dotnetcore\getting-started\mywebapi'
