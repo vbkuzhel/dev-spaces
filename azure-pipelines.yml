@@ -23,4 +23,8 @@ stages:
     - task: BatchScript@1
       inputs:
         filename: '"C:\Program Files\Docker\Docker\resources\bin\docker.exe"'
+        arguments: 'ps'      
+    - task: BatchScript@s
+      inputs:
+        filename: '"C:\Program Files\Docker\Docker\resources\bin\docker.exe"'
         arguments: 'build -t devspaces -f $(Build.SourcesDirectory)/samples/BikeSharingApp/BikeSharingWeb/Dockerfile .'      
