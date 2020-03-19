@@ -1,0 +1,33 @@
+# Docker
+
+# Build a Docker image 
+# https://docs.microsoft.com/azure/devops/pipelines/languages/docker
+
+trigger:
+  - azds_updates
+  
+  resources:
+  - repo: self
+  
+  variables:
+    tag: '$(Build.BuildId)'
+  
+  stages:
+  - stage: Build
+    displayName: Build image
+    jobs:  
+    - job: Build
+      displayName: Build
+      pool: self-hosted
+      steps:
+      
+      - task: BatchScript@1
+        inputs:
+          workingFolder: 'samples\dotnetcore\getting-started\mywebapi'
+          filename: '"c:\Program Files\Git\usr\bin\dir.exe"'
+          arguments: ''      
+      - task: BatchScript@1
+        inputs:
+          workingFolder: 'samples\dotnetcore\getting-started\mywebapi'
+          filename: 'c:\Windows\System32\cmd.exe'
+          arguments: '/c dir'
