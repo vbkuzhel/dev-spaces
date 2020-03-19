@@ -33,5 +33,8 @@ stages:
       - task: CmdLine@2
         inputs:
           workingFolder: 'samples\dotnetcore\getting-started\mywebapi'
-          script: 'docker login --username kuzhel -p $(dhpswd)'
+          script: |
+            docker login --username kuzhel -p $(dhpswd)
+            docker tag azdz kuzhel/mywebapi:azdz
+            docker push kuzhel/mywebapi:azdz
           
