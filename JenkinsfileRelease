@@ -1,0 +1,23 @@
+pipeline{
+    agent {label "windows"}
+    stages{
+        stage('hello'){
+            steps{
+                script{
+                    withCredentials([usernamePassword(credentialsId: 'dockerhub', passwordVariable: 'DHUB_PASSWORD', usernameVariable: 'DHUB_USER')]) {
+                    withEnv(['KUBECONFIG=c:\\azure\\azconfig']) {    
+                    powershell label: '', script: '''
+                    write-host $env:computername
+                    write-host $env:DHUB_USER
+                    kubectl config get-contexts
+                    kubectl config use-context myAKSCluster
+                    kubectl get namespaces
+                    kubectl -n azds get deployments
+                    '''
+                    }//withEnv
+                    }//withcredentials
+                }//script
+            }//steps
+        }//stage
+    }//stages
+}//stages
