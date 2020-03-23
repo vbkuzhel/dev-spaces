@@ -8,6 +8,7 @@ pipeline{
                     write-host $env:computername
                     cd samples\\dotnetcore\\getting-started\\mywebapi
                     dir
+                    docker build -t azdz .
                     '''
                 }//script
             }//steps
