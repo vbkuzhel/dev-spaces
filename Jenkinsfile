@@ -6,7 +6,7 @@ pipeline{
                 script{
                     powershell label: '', script: '''
                     write-host $env:computername
-                    cd samples\dotnetcore\getting-started\mywebapi
+                    cd samples\\dotnetcore\\getting-started\\mywebapi
                     dir
                     '''
                 }//script
