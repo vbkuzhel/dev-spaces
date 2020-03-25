@@ -8,11 +8,13 @@ pipeline{
                     withEnv(['KUBECONFIG=c:\\azure\\azconfig']) {    
                     powershell label: '', script: '''
                     write-host $env:computername
-                    write-host $env:DHUB_USER
+                    cd samples/dotnetcore/getting-started/mywebapi
+                    dir
                     kubectl config get-contexts
                     kubectl config use-context myAKSCluster
                     kubectl get namespaces
-                    kubectl -n azds get deployments
+                    cd charts
+                    helm upgrade webapi .
                     '''
                     }//withEnv
                     }//withcredentials
